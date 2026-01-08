@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lembranças 💝</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Special+Elite&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <audio id="som-papel" src="papel.mp3" preload="auto"></audio>
+    
+    <audio id="musica-fundo" preload="auto"></audio>
+    
+    <div class="fundo-manchas"></div>
+    <div id="container-coracoes"></div>
+
+    <header class="header-container">
+        <h1 class="titulo-artistico">Fragmentos de <span class="destaque">Nós</span></h1>
+        <p class="instrucoes">Dê dois cliques para virar | Segure para dar zoom</p>
+    </header>
+
+    <main class="mural-container">
+        <div class="mural">
+            
+            <div class="quadro-container rot-1" 
+                 ondblclick="virarCarta(this)" 
+                 onmousedown="iniciarContagemZoom(this)" onmouseup="cancelarZoom(this)" onmouseleave="cancelarZoom(this)"
+                 ontouchstart="iniciarContagemZoom(this)" ontouchend="cancelarZoom(this)">
+                <div class="quadro-inner">
+                    <div class="frente">
+                        <div class="tachinha"></div>
+                        <div class="moldura-img"><img src="foto1.jpg" alt="O início"></div>
+                        <p class="legenda">O início de tudo ❤️</p>
+                    </div>
+                    <div class="costas">
+                        <h3 class="titulo-artistico" style="font-size: 2rem;">Lembranças</h3>
+                        <p class="fonte-maquina">Essa foto me faz lembrar que nos conhecemos em um dia qualquer. 05/12/2025</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quadro-container rot-2" 
+                 ondblclick="virarCarta(this)" 
+                 onmousedown="iniciarContagemZoom(this)" onmouseup="cancelarZoom(this)" onmouseleave="cancelarZoom(this)"
+                 ontouchstart="iniciarContagemZoom(this)" ontouchend="cancelarZoom(this)">
+                <div class="quadro-inner">
+                    <div class="frente">
+                        <div class="tachinha"></div>
+                        <div class="moldura-img"><img src="foto2.jpg" alt="Foto preferida"></div>
+                        <p class="legenda">Foto preferida 🤭</p>
+                    </div>
+                    <div class="costas">
+                        <h3 class="titulo-artistico" style="font-size: 2rem;">Melhor Foto</h3>
+                        <p class="fonte-maquina">A foto mais mídia que tem.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quadro-container rot-3" 
+                 ondblclick="virarCarta(this)" 
+                 onmousedown="iniciarContagemZoom(this)" onmouseup="cancelarZoom(this)" onmouseleave="cancelarZoom(this)"
+                 ontouchstart="iniciarContagemZoom(this)" ontouchend="cancelarZoom(this)">
+                <div class="quadro-inner">
+                    <div class="frente">
+                        <div class="tachinha"></div>
+                        <div class="moldura-img"><img src="foto3.jpg" alt="Cacheada"></div>
+                        <p class="legenda">Sou apaixonado 😍</p>
+                    </div>
+                    <div class="costas">
+                        <h3 class="titulo-artistico" style="font-size: 2rem;">Cacheada...</h3>
+                        <p class="fonte-maquina">Cada segundo ao seu lado é um presente que eu guardo aqui.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quadro-container rot-1" 
+                 ondblclick="virarCarta(this)" 
+                 onmousedown="iniciarContagemZoom(this)" onmouseup="cancelarZoom(this)" onmouseleave="cancelarZoom(this)"
+                 ontouchstart="iniciarContagemZoom(this)" ontouchend="cancelarZoom(this)">
+                <div class="quadro-inner">
+                    <div class="frente">
+                        <div class="tachinha"></div>
+                        <div class="moldura-img"><img src="foto4.jpg" alt="Amarro"></div>
+                        <p class="legenda">Foto que eu me amarro 😍</p>
+                    </div>
+                    <div class="costas">
+                        <h3 class="titulo-artistico" style="font-size: 2rem;">Você</h3>
+                        <p class="fonte-maquina">Amo como você brilha e como faz minha vida ser melhor.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div> <div id="relogio-discreto" onclick="abrirPainel()">❤️</div>
+
+        <div id="painel-tempo" class="modal-tempo">
+            <div class="modal-conteudo">
+                <span class="fechar" onclick="fecharPainel()">&times;</span>
+                <h2 class="titulo-artistico" style="font-size: 2.5rem;">Nossa Linha do Tempo</h2>
+                
+                <div class="stats-grid" style="margin: 20px 0;">
+                    <div class="stat-item" style="margin-bottom: 15px;">
+                        <p style="margin: 0; color: #a38d93;">Nos conhecemos em:</p>
+                        <strong style="color: #a82a4d;">25/11/2025</strong>
+                    </div>
+                    <div class="stat-item">
+                        <p style="margin: 0; color: #a38d93;">Estamos juntos há:</p>
+                        <strong id="contador-tempo-juntos" style="font-size: 1.4rem; color: #a82a4d;">Calculando...</strong>
+                    </div>
+                </div>
+
+                <div class="sessao-pensamento" style="border-top: 1px solid #eee; padding-top: 15px;">
+                    <p>Vezes que pensei em você:</p>
+                    <h3 id="num-pensamentos" class="titulo-artistico" style="font-size: 3rem; margin: 10px 0;">∞</h3>
+                    <button id="btn-porque" onclick="revelarSegredo()">Por quê?</button>
+                    <p id="mensagem-secreta" class="escondido fonte-maquina">
+                        Porque eu nunca parei de pensar em você desde o primeiro segundo. ✨💝
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
